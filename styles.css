@@ -1,0 +1,39 @@
+.jumbotron {
+  color: #fff;
+  background-color: #C48142;
+}
+
+h1 {
+  color: #C48142;
+  font-size: 40px;
+  font-weight: bold;
+}
+
+#title {
+  color: #fff;
+  font-size: 45px;
+  font-weight: normal;
+}
+
+.information {
+  margin-top: 50px;
+}
+
+.subsection {
+  padding-right: 10px;
+}
+
+.centeredImage {
+  margin-right: 20vw;
+}
+
+a {
+   text-decoration: none ;
+   color: #cecece;
+}
+
+a:hover {
+  color: white;
+  text-decoration:none;
+  cursor:pointer;
+}
