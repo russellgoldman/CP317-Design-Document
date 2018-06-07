@@ -15,10 +15,10 @@
     <div class="jumbotron">
       <div class="container text-center">
         <h1 id="title">
-          <b>Beer Buddy Requirements Document</b>
+          <b>Beer Buddy Analysis Document</b>
         </h1>
         <a href="https://github.com/russellgoldman/CP317-Beer-Finder" target="_blank">
-          <h4><u>v2.0</u></h4>
+          <h4><u>v3.0</u></h4>
         </a>
         <br /><br />
         <h4><b>Designed by:</b><h6>CP317 Software Engineering Students</h6></h4>
@@ -29,7 +29,7 @@
     <div class="container-fluid information">
       <div class="row content">
         <div class="col-sm-1 col-md-1 col-lg-3"></div>
-        <div class="col-sm-10 col-md-10 col-lg-6" >
+        <div class="col-sm-10 col-md-10 col-lg-6">
           <br />
           <div>
             <h1>
@@ -39,442 +39,364 @@
             <hr>
             <br />
             <div>
-              <h4>
-                <span class="subsection"><b><u>1.1</u></b></span>
-                The Purpose of the Document
-              </h4>
               <p>
-                The purpose of this document will be to outline and describe the application, the application interface requirements, design requirements, business and marketing plan and finally the implementation process.
+                BeerBuddy will be a beer utility application that is web based. This application aims to be a useful tool to try out new kinds of beer regardless of beer expertise. Users will be presented an introductory page which will contain two modes: one for novice users and the second one for experienced users. After suitable search criteria is filled out, users will then be provided with beer recommendations catered to their individual knowledge and taste.
               </p>
               <br />
             </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>1.2</u></b></span>
-                Scope of the Document
-              </h4>
-              <p>
-                Our application will be web based. It will require that a user will have the ability to; use or locate a computer, connect to the internet (Wi-Fi or wired ethernet connections), and use a web browser to navigate to our application site.
-              </p>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>1.3</u></b></span>
-                Overview of the Application
-              </h4>
-              <p>
-                This section describes the software requirements for the Beer Buddy application. The purpose of our application will be to make (preferred) beer acquisition easier and faster. The application aims to increase the speed of the buying process. Presently, customers go through a six-step process when purchasing anything. In order; problem recognition, information search, evaluation of alternatives, purchase decision, purchase and post purchase evaluation. Essentially the problems a consumer faces are; they don’t know what they want, they must work and evaluate choices (costly endeavor) and finally they are left to review themselves whether they like the products/services they purchased. Our web application will allow users to use essential primary criteria to make choices that will best suit their preferences. Since the consumer already has a historic previous preference they will be able to make the choices that will offer them relevant options to choose from instead of testing out every product to determine if they enjoy it or not.
-              </p>
-            </div>
-            <br  /><br  />
           </div>
           <div>
             <h1>
               <span class="subsection">2.</span>
-              Business Context
+              Object Classification
             </h1>
             <hr>
             <br />
             <div>
               <h4>
                 <span class="subsection"><b><u>2.1</u></b></span>
-                Ease of Use
+                Entity Objects
               </h4>
-              <p>
-                This section describes the consumer view for the Beer Buddy application. Initially the user will have the main screen with two options. An option where they choose whether they are familiar with beers or they are novice beer consumers. The first choice will then lead to a new page that will be selection criteria. After the user chooses their preferences, the application will generate a list of relevant beers. The user will then be able to select the beer they would like, and it will be guaranteed to be of their liking (such that they entered preferences they actually enjoyed). The latter option of novice consumers will lead to a page which will have approximately five to ten beers which are extremely different. The user will be able to select the one that interests them, the application will list the qualities or key characteristics of the drink and any relevant reviews. For all the drinks the assumption will be made that they are available for purchase locally (for this project local is assumed to be Waterloo Region).
-              </p>
+              <br />
+              <ul>
+                <li>
+                  <h5>Brand</h5>
+                  <p>
+                    A table to hold individual brand information (name, country of origin)
+                  </p>
+                </li>
+                <li>
+                  <h5>Beer</h5>
+                  <p>
+                    A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
+                  </p>
+                </li>
+                <li>
+                  <h5>BodyType</h5>
+                  <p>
+                    A table to hold body type information (light, medium, dark)
+                  </p>
+                </li>
+                <li>
+                  <h5>Rating</h5>
+                  <p>
+                    A table to hold rating information for individual beers (rating value from 1-5, rater name, date)
+                  </p>
+                </li>
+                <li>
+                  <h5>ContainerType</h5>
+                  <p>
+                    A table to hold container type information (can, bottle, keg)
+                  </p>
+                </li>
+                <li>
+                  <h5>Taste</h5>
+                  <p>
+                    A table to hold taste information (aggressive, complex, fruity, hoppy, malty, crisp)
+                  </p>
+                </li>
+              </ul>
               <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>2.2</u></b></span>
-                Scalability
+                Boundary Objects
               </h4>
-              <p>
-                This section describes the scalability for the Beer Buddy application. Initially, the application is designed to be accessible via websites. Anyone with a computer and access to a browser will be able to access it and then embark on a trip to purchase the drink that best fits their criteria. As a business model, this application would ideally made for tablets which would be available at local bars, pubs, and nightclubs. This would make it easier for people to pick out new drinks or similar drinks to try out while enjoying their night out with friends or their partners. If implemented in tablet mode, the application could also be used in local beer stores or stores with an assortment of beers/alcohols that are available for purchase. This would increase the stores revenue and the data can then be recorded and sold to beer/alcohol manufacturers so that they can monitor what the consumers like to drink and what not.
-              </p>
-              <br  /><br  />
+              <br />
+              <ul>
+                <li>
+                  <h5>BrandView</h5>
+                  <p>
+                    Where a user views information relevant to a Brand
+                  </p>
+                </li>
+                <li>
+                  <h5>BeerView</h5>
+                  <p>
+                    A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
+                  </p>
+                </li>
+                <li>
+                  <h5>RatingView</h5>
+                  <p>
+                    Where a user views information relevant to a Rating
+                  </p>
+                </li>
+                <li>
+                  <h5>SearchBeerView</h5>
+                  <p>
+                    Where a user searches for a Beer
+                  </p>
+                </li>
+                <li>
+                  <h5>SearchBeerResultsView</h5>
+                  <p>
+                    Where a user sees the results of a search for a Beer
+                  </p>
+                </li>
+                <li>
+                  <h5>CreateBrandView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to create a Brand
+                  </p>
+                </li>
+                <li>
+                  <h5>CreateBeerView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to create a Beer
+                  </p>
+                </li>
+                <li>
+                  <h5>RateBeerView</h5>
+                  <p>
+                    Where a user fills out and submits a form required to rate a Beer (create a Rating)
+                  </p>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>2.3</u></b></span>
+                Control Objects
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <h5>BrandController</h5>
+                  <p>
+                    Coordinates all activities related to Brand objects
+                  </p>
+                </li>
+                <li>
+                  <h5>BeerController</h5>
+                  <p>
+                    Coordinates all activities related to Beer objects
+                  </p>
+                </li>
+                <li>
+                  <h5>RatingController</h5>
+                  <p>
+                    Coordinates all activities related to Rating objects
+                  </p>
+                </li>
+                <li>
+                  <h5>SearchController</h5>
+                  <p>
+                    Coordinates all activities related to searching for beers
+                  </p>
+                </li>
+              </ul>
+              <br />
             </div>
           </div>
           <div>
             <h1>
               <span class="subsection">3.</span>
-              Current System Description
+              Use Cases
             </h1>
             <hr>
             <br />
             <div>
               <h4>
                 <span class="subsection"><b><u>3.1</u></b></span>
-                Purpose
+                Search
               </h4>
-              <p>
-                The goal of Beer Buddy is to provide insight and advice in the beer choices of its users. They can enter criteria that they want to use to query related beers, as well as adding custom beers to the database (would use the API). The service assumes that the beers are available locally (same city as one resides in).
-              </p>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">SearchBeerView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">SearchController uses input to access the Beer entity</p>
+                </li>
+                <li>
+                  <p class="pModified">SearchController finds all Beer objects with matching input to user input and creates a data structure with all the objects</p>
+                </li>
+                <li>
+                  <p class="pModified">SearchController creates a SearchBeerResultsView with the list of Beer objects</p>
+                </li>
+                <li>
+                  <p class="pModified">SearchBeerView and SearchBeerResultsView are destroyed after use case ends</p>
+                </li>
+              </ul>
               <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>3.2</u></b></span>
-                User Characteristics
+                Review
               </h4>
-              <p>
-                User must understand terms about beer, and have basic aptitude towards search engines.
-              </p>
               <br />
-              <div class="text-center centeredImage">
-                <img src="./images/actors.png" class="img-responsive" alt="UML Actors">
-              </div>
+              <ul>
+                <li>
+                  <p class="pModified">CreateRatingView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">RatingController creates a new Rating object with information from CreateRatingView</p>
+                </li>
+                <li>
+                  <p class="pModified">RatingController attaches the Rating object to the corresponding Beer object </p>
+                </li>
+                <li>
+                  <p class="pModified">(System to determine if rating is successfully added to database TBD)</p>
+                </li>
+                <li>
+                  <p class="pModified">CreateRatingView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New RatingView can be created by RatingController pertaining to new Rating object</p>
+                </li>
+              </ul>
               <br />
-              <h5>Select Criteria</h5>
-              <p>
-                Option to choose whether they are a novice consumer of beer or not
-              </p>
-              <h5>Pick Criteria Attributes</h5>
-              <p>
-                Pick preferences of what kind of beer they like or enjoy. What combination of these do they prefer.
-              </p>
-              <h5>View Queried Beers</h5>
-              <p>
-                A list of relevant beers based on the attributes selected (along with key information about local availability, tags, ratings (if applicable)
-              </p>
-              <h5>Add Custom Beer</h5>
-              <p>
-                If preferred beer not found, or user has already tried all the listed suggested beers. A window will be presented (through an “Add New Beer” button) for the user to enter a new beer that fits the selection criteria previously listed (if not selected the user will enter attributes on their own). Then the beer will be submitted for review by moderators who will determine the legitimacy of the submission and whether it is accurate with the attributes listed as its traits.
-              </p>
-              <br  /><br  />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.3</u></b></span>
+                Enter Beer Data
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">CreateBeerView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">BeerController creates a new Beer object with information from CreateBeerView</p>
+                </li>
+                <li>
+                  <p class="pModified">(System to determine if beer is successfully added to database TBD)</p>
+                </li>
+                <li>
+                  <p class="pModified">CreateBeerView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New BeerView can be created by BeerController pertaining to new Beer object</p>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.4</u></b></span>
+                Enter Brand Data
+              </h4>
+              <br />
+              <ul>
+                <li>
+                  <p class="pModified">CreateBrandView is created and takes input from user</p>
+                </li>
+                <li>
+                  <p class="pModified">BrandController creates a new Brand object with information from CreateBrandView</p>
+                </li>
+                <li>
+                  <p class="pModified">(System to determine if brand is successfully added to database TBD)</p>
+                </li>
+                <li>
+                  <p class="pModified">CreateBrandView is destroyed after use case ends</p>
+                </li>
+                <li>
+                  <p class="pModified">New BrandView can be created by BrandController pertaining to new Brand object</p>
+                </li>
+              </ul>
+              <br />
             </div>
           </div>
           <div>
             <h1>
               <span class="subsection">4.</span>
-              Functional Requirements
+              Diagrams
             </h1>
-            <hr>
+            <hr />
             <br />
             <div>
               <h4>
                 <span class="subsection"><b><u>4.1</u></b></span>
-                Purpose
+                Database UML Diagram
               </h4>
-              <ol>
-                <li>
-                  Client enters information about beer through tags/search filters
-                </li>
-                <li>
-                  Produce search results
-                </li>
-                <li>
-                  Search results will be sorted based on options entered by user or default options
-                </li>
-              </ol>
-              <br />
+              <br /><br />
+              <div class="text-center centeredImage">
+                <img src="./images/databaseUML.png" class="img-responsive" alt="Database UML">
+              </div>
+              <br  /><br  />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>4.2</u></b></span>
-                Reviews
+                Boundary / Control / Entity Diagram
               </h4>
-              <ol>
-                <li>
-                  Client posts opinions of beers
-                </li>
-                <li>
-                  Client rates beers
-                </li>
-                <li>
-                  Forum page for each product for discussion
-                </li>
-              </ol>
-              <br />
+              <br /><br />
+              <div class="text-center centeredImage">
+                <img src="./images/boundaryControlEntityUML.jpg" class="img-responsive" alt="Database UML">
+              </div>
+              <br  /><br  />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>4.3</u></b></span>
-                Client data-entry
+                State Diagrams
               </h4>
-              <ol>
-                <li>
-                  System for users to enter their own beers through popular vote, etc. (TBD)
-                </li>
-                <li>
-                  Client entries will have information about the user
-                </li>
-              </ol>
               <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>4.4</u></b></span>
-                Data Storage
-              </h4>
-              <ol>
-                <li>
-                  Heroku database hooked up to the Django REST Framework (API)
-                </li>
-              </ol>
-              <br /><br />
+              <h5>Brand Controller Class</h5>
+              <div class="text-center centeredImage">
+                <img src="./images/brandController.png" class="img-responsive" alt="Database UML">
+              </div>
+              <br  />
+              <h5>Brand Controller Class</h5>
+              <div class="text-center centeredImage">
+                <img src="./images/ratingController.png" class="img-responsive" alt="Database UML">
+              </div>
+              <br  />
+              <h5>Beer Controller Class</h5>
+              <div class="text-center centeredImage">
+                <img src="./images/beerController.png" class="img-responsive" alt="Database UML">
+              </div>
+              <br  />
             </div>
           </div>
           <div>
             <h1>
               <span class="subsection">5.</span>
-              Interface Requirements
+              Contributors
             </h1>
             <hr>
             <br />
             <div>
               <h4>
                 <span class="subsection"><b><u>5.1</u></b></span>
-                Selection Screens (web-based)
-              </h4>
-              <p>
-                Users select the criteria they want, adjust the attributes of that property, and then choose to select more criteria or query the database. These screens will have intuitive selective features such as; drop down menus, check boxes. The need for a keyboard will be minimal, the only time it should be used is if the user wants to submit a review or if the user wants to add a custom beer.
-              </p>
-              <br /><br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">6.</span>
-              Performance Requirements
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <h4>
-                <span class="subsection"><b><u>6.1</u></b></span>
-                Hardware Requirements
-              </h4>
-              <p>
-                This application requires a computer or smartphone that connects with internet and must have an internet browser.
-              </p>
-              <br />
-              <h4>
-                <span class="subsection"><b><u>6.2</u></b></span>
-                Software Requirements
-              </h4>
-              <p>
-                This application will require that the device have an ability to connect to the internet and have uncorrupt version of an internet browser.
-              </p>
-              <br />
-              <h4>
-                <span class="subsection"><b><u>6.3</u></b></span>
-                Human Capability Requirement
-              </h4>
-              <p>
-                This application will require that the user be able to read the instructions provided and understand beer tastes and qualities. The consumer is expected to have tried and be aware of the different flavours/renders unless they are a novice and choose the novice option.
-              </p>
-              <br /><br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">7.</span>
-              Design Requirements
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <h4>
-                <span class="subsection"><b><u>7.1</u></b></span>
-                Standards Compliance
-              </h4>
-              <p>
-                The project members are expected to follow the Laurier standard of application designs. This includes the documentation and program design conventions and practices. If presented with a better alternative or a Laurier Computer Science approved standard (i.e. JavaDoc) the team will render the project according to that standard providing that sufficient benefit is observed and agreed upon by the group.
-              </p>
-              <br /><br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">8.</span>
-              Project Plan
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <h4>
-                <span class="subsection"><b><u>8.1</u></b></span>
-                Project Plan Steps
-              </h4>
-              <ul>
-                <li>
-                  API team begins their work and database team works on learning and coding a general template
-                </li>
-                <li>
-                  5 people start working on SQA as soon as API and database team finish working on their parts and have a functioning model
-                </li>
-                <li>
-                  Bootstrap/CSS team starts working on creating different web page styles
-                </li>
-              </ul>
-              <br /><br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">9.</span>
-              Team Formation
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <h4>
-                <span class="subsection"><b><u>9.1</u></b></span>
-                Lead Developers
+                Version 1
               </h4>
               <ul>
                 <li>Russell Goldman</li>
                 <li>Tauqeer Choudhry</li>
-                <li>Don Vo</li>
+                <li>Peiyu Lu</li>
+                <li>Yanda Tao</li>
+                <li>Yu He</li>
               </ul>
-            </div>
-            <br />
-            <h4>
-              <span class="subsection"><b><u>9.2</u></b></span>
-              Django Templates
-            </h4>
-            <ul>
-              <li>Abdullahi Abdullahi</li>
-              <li>Ziheng Wang (Isaac)</li>
-              <li>Zhixian Li (Catherine)</li>
-              <li>Abdisalan Mohamed Abdi</li>
-            </ul>
-            <br />
-            <h4>
-              <span class="subsection"><b><u>9.3</u></b></span>
-              Bootstrap / CSS Styling
-            </h4>
-            <ul>
-              <li>Ni Yang (Nina)</li>
-              <li>Yuting He</li>
-              <li>Franchesco Livado</li>
-            </ul>
-            <br />
-            <h4>
-              <span class="subsection"><b><u>9.4</u></b></span>
-              Modellers and Database
-            </h4>
-            <ul>
-              <li>Yanda Tao</li>
-              <li>David Moreno</li>
-              <li>Sirong Liu</li>
-              <li>Yu He</li>
-              <li>Peiyu Lu (Lucy)</li>
-            </ul>
-            <br />
-            <h4>
-              <span class="subsection"><b><u>9.5</u></b></span>
-              Views and Routing
-            </h4>
-            <ul>
-              <li>Abraham Banka</li>
-              <li>Zizheng Huang</li>
-              <li>Mengdan Wan</li>
-              <li>Jerry Haq</li>
-            </ul>
-            <br />
-            <h4>
-              <span class="subsection"><b><u>9.6</u></b></span>
-              API Developers
-            </h4>
-            <ul>
-              <li>Wen Han Tang</li>
-              <li>Huai Yao Hu (Walter)</li>
-              <li>Matthew Wong</li>
-              <li>Jeremy Lickers</li>
-            </ul>
-            <br /><br />
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">10.</span>
-              Portability
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <ul>
-                <li>
-                  The service needs to be accessible on all browsers (Chrome, Firefox, Microsoft Edge, Opera, Safari, Internet Explorer (if time permits), etc). Since the application will be Bootstrapped, mobile responsiveness will be built-in with the app. The service will be responsive to all current versions of web browsers.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <br /><br />
-          <div>
-            <h1>
-              <span class="subsection">11.</span>
-              Reusability
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <ul>
-                <li>
-                  The application is assumed to be open source, available for public use. Any programmer will be allowed to reuse part or all the code during the preliminary development stage. This group reserves the right to  refuse the open source availability of the application code.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <br /><br />
-          <div>
-            <h1>
-              <span class="subsection">12.</span>
-              Optional Features
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <ul>
-                <li>
-                  Databases can be updated with information from (local) beer vendors with price, availability, sales, etc.
-                </li>
-                <li>
-                  The service assumes that the user will have some knowledge beers and an understanding of what they like. If however a beer-incompetent individual wants to use the service, we will implement a help feature button which explains the significantly different beers so that the users have a chance to pick an “extreme” option and then decide what they like.
-                </li>
-                <li>
-                  Review feature, time permitting this will be attempted so that beer consumers can rank their personal favorites.
-                </li>
-                <li>
-                  Future scaling option to create login mechanism. for reviewing purposes. Users of the application will be able to have an account that will store all their pending or approved purchases.
-                </li>
-              </ul>
-              <br /><br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">13.</span>
-              Versions
-            </h1>
-            <hr>
-            <br />
-            <div>
+              <br />
               <h4>
-                <span class="subsection"><b><u>13.1</u></b></span>
-                May 24th, 2018
+                <span class="subsection"><b><u>5.2</u></b></span>
+                Version 2
               </h4>
               <ul>
-                <li>Russell Goldman</li>
                 <li>Tauqeer Choudhry</li>
+                <li>David Moreno-Bautista</li>
+                <li>Peiyu Lu</li>
+              </ul>
+              <br />
+              <h4>
+                <span class="subsection"><b><u>5.3</u></b></span>
+                Version 3
+              </h4>
+              <ul>
+                <li>David Moreno-Bautista</li>
+                <li>Tauqeer Choudhry</li>
+                <li>Russell Goldman (Bootstrap Site)</li>
                 <li>Matthew Wong</li>
-                <li>Jeremy Lickers</li>
-                <li>Huai Yao Hu</li>
-                <li>Ni Yang</li>
+                <li>Yu He</li>
+                <li>Yanda Tao</li>
               </ul>
               <br />
-              <h4>
-                <span class="subsection"><b><u>13.2</u></b></span>
-                May 28th, 2018
-              </h4>
-              <ul>
-                <li>Russell Goldman</li>
-                <li>Tauqeer Choudhry</li>
-              </ul>
-              <br /><br />
             </div>
           </div>
         </div>

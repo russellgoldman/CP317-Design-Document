@@ -3,6 +3,10 @@
   background-color: #C48142;
 }
 
+.pModified {
+  font-size: 18px;
+}
+
 h1 {
   color: #C48142;
   font-size: 40px;
@@ -36,4 +40,8 @@ a:hover {
   color: white;
   text-decoration:none;
   cursor:pointer;
+}
+
+img {
+  width: 80vw
 }
