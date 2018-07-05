@@ -15,7 +15,7 @@
     <div class="jumbotron">
       <div class="container text-center">
         <h1 id="title">
-          <b>Beer Buddy Analysis Document</b>
+          <b>Beer Buddy Design Document</b>
         </h1>
         <a href="https://github.com/russellgoldman/CP317-Beer-Finder" target="_blank">
           <h4><u>v0.4</u></h4>
@@ -43,6 +43,7 @@
                 <span class="subsection"><b><u>1.1</u></b></span>
                 The Purpose of the Document
               </h4>
+              <p></p>
               <p>
                 The purpose of this document is to make a comprehensive design of how the Beer Buddy app will work on both the front end and the back end. This will draw an approximate picture of the connections among both ends and interfaces.
               </p>
@@ -53,6 +54,7 @@
                 <span class="subsection"><b><u>1.2</u></b></span>
                 The Scope of the Document
               </h4>
+              <p></p>
               <p>
                 This document is aimed at developers involved in the development of the application.
               </p>
@@ -63,12 +65,36 @@
                 <span class="subsection"><b><u>1.3</u></b></span>
                 Overview of the Application
               </h4>
+              <p></p>
               <p>
                 Users will be greeted by a screen giving them an option to select their beer drinking experience being either novice or experienced. Experienced drinkers will be redirected to filter options such as beer colour, alcohol percentage, country of origin, and availability in can/bottle/keg. They will then receive a list of beers that match their filters ranging from most-alike to least-alike. Novice drinkers will be redirected to a page of top picks from beer types such as lagers, malts, stouts, and ales. Top picks will be referenced from the backend database.
               </p>
               <br />
             </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>1.4</u></b></span>
+                References
+              </h4>
+              <p></p>
+              <ul>
+                <li>
+                  <a href="https://russellgoldman.github.io/CP317-Requirements-Document/"
+                    style="color: #1759c4; font-size: 16px;" target="_blank">
+                    Requirements Document
+                  </a>
+                </li>
+                <li>
+                  <a href="https://russellgoldman.github.io/CP317-Analysis-Document/"
+                    style="color: #1759c4; font-size: 16px;" target="_blank">
+                    Analysis Document
+                  </a>
+                </li>
+              </ul>
+              <br />
+            </div>
           </div>
+          <br />
           <div>
             <h1>
               <span class="subsection">2.</span>
@@ -78,164 +104,493 @@
             <br />
             <div>
               <h4>
-                <span class="subsection"><b><u>3.1</u></b></span>
-                Search
+                <span class="subsection"><b><u>2.1</u></b></span>
+                Application Programming Interface (API)
               </h4>
+              <p></p>
+              <p>
+                Front-end and back-end are to be separated and interaction with the application will only be done so through front-end calls to the back-end Application Programming Interface (API). The front-end is composed of two pages including an introduction page to allow the user to select the novice or experienced drinkers edition of the BeerBuddy application. The novice edition will offer less advanced features whereas the experience version will use more complex language and offer more versatility in the user’s experience. All of this is effectively powered by the backend API of the application, which coordinates data transfer between the client and the server.
+              </p>
               <br />
-              <ul>
-                <li>
-                  <p class="pModified">SearchBeerView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">SearchController uses input to access the Beer entity</p>
-                </li>
-                <li>
-                  <p class="pModified">SearchController finds all Beer objects with matching input to user input and creates a data structure with all the objects</p>
-                </li>
-                <li>
-                  <p class="pModified">SearchController creates a SearchBeerResultsView with the list of Beer objects</p>
-                </li>
-                <li>
-                  <p class="pModified">SearchBeerView and SearchBeerResultsView are destroyed after use case ends</p>
-                </li>
-              </ul>
+            </div>
+          </div>
+          <br />
+          <div>
+            <h1>
+              <span class="subsection">3.</span>
+              Data Design
+            </h1>
+            <hr>
+            <br />
+            <div>
+              <h4>
+                <span class="subsection"><b><u>3.1</u></b></span>
+                Static Data
+              </h4>
+              <p></p>
+              <p>
+                Fields such as brand, color, and other permanent attributes of each beer will be immutable.
+              </p>
               <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>3.2</u></b></span>
-                Review
+                Dynamic Data
               </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateRatingView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">RatingController creates a new Rating object with information from CreateRatingView</p>
-                </li>
-                <li>
-                  <p class="pModified">RatingController attaches the Rating object to the corresponding Beer object </p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if rating is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateRatingView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New RatingView can be created by RatingController pertaining to new Rating object</p>
-                </li>
-              </ul>
+              <p></p>
+              <p>
+                Data such as price, location, etc. will be mutable.
+              </p>
               <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>3.3</u></b></span>
-                Enter Beer Data
+                Reused Data
               </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateBeerView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">BeerController creates a new Beer object with information from CreateBeerView</p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if beer is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateBeerView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New BeerView can be created by BeerController pertaining to new Beer object</p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>3.4</u></b></span>
-                Enter Brand Data
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <p class="pModified">CreateBrandView is created and takes input from user</p>
-                </li>
-                <li>
-                  <p class="pModified">BrandController creates a new Brand object with information from CreateBrandView</p>
-                </li>
-                <li>
-                  <p class="pModified">(System to determine if brand is successfully added to database TBD)</p>
-                </li>
-                <li>
-                  <p class="pModified">CreateBrandView is destroyed after use case ends</p>
-                </li>
-                <li>
-                  <p class="pModified">New BrandView can be created by BrandController pertaining to new Brand object</p>
-                </li>
-              </ul>
+              <p></p>
+              <p>
+                Fields such as brand, color, etc. which are qualitative and are shared by multiple beer objects will be reused and instead have beer objects added to a list. Other fields such as beer name and prices will not be objects and will not be reused. Instead, they will be instantiated with the beer object.
+              </p>
               <br />
             </div>
           </div>
+          <br />
           <div>
             <h1>
               <span class="subsection">4.</span>
-              Diagrams
+              User Interface Design
             </h1>
             <hr />
             <br />
             <div>
               <h4>
                 <span class="subsection"><b><u>4.1</u></b></span>
-                Database UML Diagram
+                Overview
               </h4>
-              <br /><br />
-              <div class="text-center centeredImage">
-                <img src="./images/databaseUML.png" class="img-responsive" alt="Database UML">
-              </div>
-              <br  /><br  />
+              <p></p>
+              <p>
+                The user interface consists of the landing page, filters page, resulted query page, individual beer viewing pages with beer ratings.
+              </p>
+              <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>4.2</u></b></span>
-                Boundary / Control / Entity Diagram
+                Navigation
               </h4>
-              <br /><br />
-              <div class="text-center centeredImage">
-                <img src="./images/boundaryControlEntityUML.jpg" class="img-responsive" alt="Database UML">
-              </div>
-              <br  /><br  />
+              <p></p>
+              <p>
+                The navigation of the page is achieved by providing a responsive navigation bar at the top of every page. The navigation bar is based of components provided by bootstrap.
+              </p>
+              <br />
             </div>
             <div>
               <h4>
                 <span class="subsection"><b><u>4.3</u></b></span>
-                State Diagrams
+                The Landing Page
               </h4>
+              <p></p>
+              <p>
+                The page will have a navigation bar and two buttons to choose from. Novice user or experienced users. Users will have a chance to read about us and contact us. They will also have a chance to login if they had an existing account. This will be achieved through the navigation bar at the top of every page.
+              </p>
               <br />
-              <h5>Brand Controller Class</h5>
               <div class="text-center centeredImage">
-                <img src="./images/brandController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/landingPage.jpg" class="img-responsive" alt="landingPage">
               </div>
-              <br  />
-              <h5>Brand Controller Class</h5>
+              <br />
+              <table>
+                <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
+                  <td>Field</td>
+                  <td>Type</td>
+                  <td>Description</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Novice</td>
+                  <td>Input Control</td>
+                  <td>Links to the main page for novice users</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Experienced</td>
+                  <td>Input Control</td>
+                  <td>Links to the main page for experienced users</td>
+                </tr>
+              </table>
+              <br />
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>4.4</u></b></span>
+                The Filters Page
+              </h4>
+              <p></p>
+              <p>
+                The page lets the users search for beer by selecting the type, color and country of the beer.
+              </p>
+              <br />
               <div class="text-center centeredImage">
-                <img src="./images/ratingController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/filtersPage.jpg" class="img-responsive" alt="filtersPage">
               </div>
-              <br  />
-              <h5>Beer Controller Class</h5>
+              <br />
+              <table>
+                <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
+                  <td>Field</td>
+                  <td>Type</td>
+                  <td>Description</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Search</td>
+                  <td>Navigational component</td>
+                  <td>Lets the user search for selected beer.</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Type</td>
+                  <td>Input Control</td>
+                  <td>Lets the user select the type of beer</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Colour</td>
+                  <td>Input Control</td>
+                  <td>Lets the user select the colour of the beer</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Country</td>
+                  <td>Input Control</td>
+                  <td>Lets the user select the country of origin</td>
+                </tr>
+              </table>
+              <br />
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>4.5</u></b></span>
+                The Add Beer Page
+              </h4>
+              <p></p>
+              <p>
+                The page will have a form to input information about the beer the user wants to submit.
+              </p>
+              <br />
               <div class="text-center centeredImage">
-                <img src="./images/beerController.png" class="img-responsive" alt="Database UML">
+                <img src="./images/addBeerPage.jpg" class="img-responsive" alt="addBeerPage">
               </div>
-              <br  />
+              <br />
+              <table>
+                <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
+                  <td>Field</td>
+                  <td>Type</td>
+                  <td>Description</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Submit</td>
+                  <td>Navigational component</td>
+                  <td>Lets the user search for selected beer.</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Name</td>
+                  <td>Input Control</td>
+                  <td>Text field to input beer name</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Type</td>
+                  <td>Input Control</td>
+                  <td>Lets user select type of beer</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Country</td>
+                  <td>Input Control</td>
+                  <td>Lets the user select the country of origin</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Acl</td>
+                  <td>Input Control</td>
+                  <td>Text field for user to input acl percentage</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>Details</td>
+                  <td>Input Control</td>
+                  <td>Text box to input further description of the beer.</td>
+                </tr>
+              </table>
+              <br />
+              <br />
             </div>
           </div>
           <div>
             <h1>
               <span class="subsection">5.</span>
-              Contributors
+              Functionality
+            </h1>
+            <hr>
+            <br />
+            <div>
+              <h4>
+                <span class="subsection"><b><u>5.1</u></b></span>
+                Search
+              </h4>
+              <p></p>
+              <ul>
+                <li>
+                  User will be able to search for beers through filters such as color and brand
+                </li>
+                <li>
+                  User can search through keywords which will match through description and stringified categories
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>5.2</u></b></span>
+                Display
+              </h4>
+              <p></p>
+              <ul>
+                <li>
+                  User will be able to see a webpage for each beer which contains information about the beer such as color and brand
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>5.3</u></b></span>
+                Add/Edit Beer
+              </h4>
+              <p></p>
+              <ul>
+                <li>
+                  User will be able to add beers to the database through an undetermined system as of now
+                </li>
+                <li>
+                  User will be able to edit the description and categories of existing beers
+                </li>
+              </ul>
+              <br />
+            </div>
+          </div>
+          <br />
+          <div>
+            <h1>
+              <span class="subsection">6.</span>
+              Documentation
+            </h1>
+            <hr>
+            <br />
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.1</u></b></span>
+                Front-end Languages
+              </h4>
+              <p></p>
+              <ul>
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.2</u></b></span>
+                Front-end Libraries
+              </h4>
+              <p></p>
+              <ul>
+                <li>
+                  Bootstrap
+                  <ul>
+                    <li>
+                      Our web application is made using <b>Twitter Bootstrap</b>. This enables our app to have responsive design implementation. It is a free open-source framework that enhances the design of web applications.
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.3</u></b></span>
+                Back-end Languages
+              </h4>
+              <p></p>
+              <ul>
+                <li>Python</li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.4</u></b></span>
+                Back-end Libraries
+              </h4>
+              <p></p>
+              <ul>
+                <li>Django</li>
+                <li>Django REST Framework <i>or</i> Flask</li>
+              </ul>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.5</u></b></span>
+                Back-end UML
+              </h4>
+              <br />
+              <div class="text-center centeredImage">
+                <img src="./images/backendUML.png" class="img-responsive" alt="backendUML">
+              </div>
+              <br />
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.6</u></b></span>
+                Back-end Route Dictionary
+              </h4>
+              <br />
+              <table>
+                <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
+                  <td>Name + Method Type</td>
+                  <td>Parameters + Return Type</td>
+                  <td>Description</td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>
+                    <b>Name:</b>
+                    <br />
+                    GET /filteredBeer
+                    <br />
+                    <br />
+                    <b>Type:</b>
+                    <br />
+                    API Route
+                  </td>
+                  <td>
+                    <b>Parameters:</b>
+                    <br />
+                    userDefinedFilters (Dictionary Object)
+                    <br />
+                    <br />
+                    <b>Return Type:</b>
+                    <br />
+                    Dictionary Object + 200 OK Status / 404 Not Found Status
+                  </td>
+                  <td>
+                    The frontend sends a GET request to the backend with the user defined filters as a dictionary object.
+                    <br />
+                    <br />
+                    The backend then uses the given dictionary object to compare all the beers and in the callback function, it either returns a query in descending order containing the beers most similar to the user defined filters (200), or returns an error message (404).
+                    <br />
+                    <br />
+                    Finally, the backend returns a new dictionary object containing the queried beers and how closely they resembled the filters (0 - 100% matching score as a key/value pair) and their respective data (the 200 OK status) or the error message (the 404 Not Found status) if something went wrong. The 200 status OK data will then be used to serve the individual beer viewing pages.
+                  </td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>
+                    <b>Name:</b>
+                    <br />
+                    POST /anonymousRating
+                    <br />
+                    <br />
+                    <b>Type:</b>
+                    <br />
+                    API Route
+                  </td>
+                  <td>
+                    <b>Parameters:</b>
+                    <br />
+                    anonUserName (String), beerName (String), message String), rating (Integer; 0-5)
+                    <br />
+                    <br />
+                    <b>Return Type:</b>
+                    <br />
+                    200 OK Status / 400 Bad Request Status
+                  </td>
+                  <td>
+                    The frontend sends a POST request to the backend containing a dictionary object with the anonymous user's name (String), the beer name (String), the rating message (String), and the rating from 0-5 (Integer) as a parameter.
+                    <br />
+                    <br />
+                    The backend receives the dictionary object, checks that see that the comment is not a complete duplicate, and then either writes the data to the database (200) or does not (400).
+                    <br />
+                    <br />
+                    The backend then returns the status of the request back to the user (200 for status OK, and 400 for bad request).
+                  </td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>
+                    <b>Name:</b>
+                    <br />
+                    GET /filters
+                    <br />
+                    <br />
+                    <b>Type:</b>
+                    <br />
+                    API Route
+                  </td>
+                  <td>
+                    <b>Parameters:</b>
+                    <br />
+                    anonUserName (String), beerName (String), message String), rating (Integer; 0-5)
+                    <br />
+                    <br />
+                    <b>Return Type:</b>
+                    <br />
+                    200 OK Status / 400 Bad Request Status
+                  </td>
+                  <td>
+                    The frontend sends a POST request to the backend containing a dictionary object with the anonymous user's name (String), the beer name (String), the rating message (String), and the rating from 0-5 (Integer) as a parameter.
+                    <br />
+                    <br />
+                    The backend receives the dictionary object, checks that see that the comment is not a complete duplicate, and then either writes the data to the database (200) or does not (400).
+                    <br />
+                    <br />
+                    The backend then returns the status of the request back to the user (200 for status OK, and 400 for bad request).
+                  </td>
+                </tr>
+                <tr style="color: black; font-size: 17px;">
+                  <td>
+                    <b>Name:</b>
+                    <br />
+                    POST /anonymousRating
+                    <br />
+                    <br />
+                    <b>Type:</b>
+                    <br />
+                    API Route
+                  </td>
+                  <td>
+                    <b>Parameters:</b>
+                    <br />
+                    anonUserName (String), beerName (String), message String), rating (Integer; 0-5)
+                    <br />
+                    <br />
+                    <b>Return Type:</b>
+                    <br />
+                    200 OK Status / 400 Bad Request Status
+                  </td>
+                  <td>
+                    The frontend sends a POST request to the backend containing a dictionary object with the anonymous user's name (String), the beer name (String), the rating message (String), and the rating from 0-5 (Integer) as a parameter.
+                    <br />
+                    <br />
+                    The backend receives the dictionary object, checks that see that the comment is not a complete duplicate, and then either writes the data to the database (200) or does not (400).
+                    <br />
+                    <br />
+                    The backend then returns the status of the request back to the user (200 for status OK, and 400 for bad request).
+                  </td>
+                </tr>
+              </table>
+              <br />
+            </div>
+          </div>
+          <br />
+          <div>
+            <h1>
+              <span class="subsection">6.</span>
+              Documentation
             </h1>
             <hr>
             <br />
@@ -252,6 +607,8 @@
                 <li>Yu He</li>
               </ul>
               <br />
+            </div>
+            <div>
               <h4>
                 <span class="subsection"><b><u>5.2</u></b></span>
                 Version 2
@@ -262,6 +619,8 @@
                 <li>Peiyu Lu</li>
               </ul>
               <br />
+            </div>
+            <div>
               <h4>
                 <span class="subsection"><b><u>5.3</u></b></span>
                 Version 3

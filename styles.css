@@ -43,5 +43,13 @@ a:hover {
 }
 
 img {
-  width: 40vw
+  width: 40vw;
+}
+
+td {
+  padding: 15px;
+}
+
+table, th, td {
+  border: 1px solid black;
 }
