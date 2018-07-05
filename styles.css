@@ -45,3 +45,7 @@ a:hover {
 img {
   width: 40vw;
 }
+
+table, th, td {
+  border: 0px solid white;
+}
