@@ -45,12 +45,3 @@ a:hover {
 img {
   width: 40vw;
 }
-
-td {
-  padding: 15px;
-  border: 1px solid black;
-}
-
-table, th, td {
-  border: 1px solid black;
-}
