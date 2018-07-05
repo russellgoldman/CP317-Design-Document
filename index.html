@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>CP317 Analysis Document</title>
+    <title>CP317 Design Document</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/png" href="./favicon.png">
@@ -18,7 +18,7 @@
           <b>Beer Buddy Analysis Document</b>
         </h1>
         <a href="https://github.com/russellgoldman/CP317-Beer-Finder" target="_blank">
-          <h4><u>v3.0</u></h4>
+          <h4><u>v0.4</u></h4>
         </a>
         <br /><br />
         <h4><b>Designed by:</b><h6>CP317 Software Engineering Students</h6></h4>
@@ -39,8 +39,32 @@
             <hr>
             <br />
             <div>
+              <h4>
+                <span class="subsection"><b><u>1.1</u></b></span>
+                The Purpose of the Document
+              </h4>
               <p>
-                BeerBuddy will be a beer utility application that is web based. This application aims to be a useful tool to try out new kinds of beer regardless of beer expertise. Users will be presented an introductory page which will contain two modes: one for novice users and the second one for experienced users. After suitable search criteria is filled out, users will then be provided with beer recommendations catered to their individual knowledge and taste.
+                The purpose of this document is to make a comprehensive design of how the Beer Buddy app will work on both the front end and the back end. This will draw an approximate picture of the connections among both ends and interfaces.
+              </p>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>1.2</u></b></span>
+                The Scope of the Document
+              </h4>
+              <p>
+                This document is aimed at developers involved in the development of the application.
+              </p>
+              <br />
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>1.3</u></b></span>
+                Overview of the Application
+              </h4>
+              <p>
+                Users will be greeted by a screen giving them an option to select their beer drinking experience being either novice or experienced. Experienced drinkers will be redirected to filter options such as beer colour, alcohol percentage, country of origin, and availability in can/bottle/keg. They will then receive a list of beers that match their filters ranging from most-alike to least-alike. Novice drinkers will be redirected to a page of top picks from beer types such as lagers, malts, stouts, and ales. Top picks will be referenced from the backend database.
               </p>
               <br />
             </div>
@@ -48,153 +72,7 @@
           <div>
             <h1>
               <span class="subsection">2.</span>
-              Object Classification
-            </h1>
-            <hr>
-            <br />
-            <div>
-              <h4>
-                <span class="subsection"><b><u>2.1</u></b></span>
-                Entity Objects
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <h5>Brand</h5>
-                  <p>
-                    A table to hold individual brand information (name, country of origin)
-                  </p>
-                </li>
-                <li>
-                  <h5>Beer</h5>
-                  <p>
-                    A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
-                  </p>
-                </li>
-                <li>
-                  <h5>BodyType</h5>
-                  <p>
-                    A table to hold body type information (light, medium, dark)
-                  </p>
-                </li>
-                <li>
-                  <h5>Rating</h5>
-                  <p>
-                    A table to hold rating information for individual beers (rating value from 1-5, rater name, date)
-                  </p>
-                </li>
-                <li>
-                  <h5>ContainerType</h5>
-                  <p>
-                    A table to hold container type information (can, bottle, keg)
-                  </p>
-                </li>
-                <li>
-                  <h5>Taste</h5>
-                  <p>
-                    A table to hold taste information (aggressive, complex, fruity, hoppy, malty, crisp)
-                  </p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>2.2</u></b></span>
-                Boundary Objects
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <h5>BrandView</h5>
-                  <p>
-                    Where a user views information relevant to a Brand
-                  </p>
-                </li>
-                <li>
-                  <h5>BeerView</h5>
-                  <p>
-                    A table to hold individual beer information and foreign key relationships (info: name, colour, alcohol percentage; relation: brand, body type, container types)
-                  </p>
-                </li>
-                <li>
-                  <h5>RatingView</h5>
-                  <p>
-                    Where a user views information relevant to a Rating
-                  </p>
-                </li>
-                <li>
-                  <h5>SearchBeerView</h5>
-                  <p>
-                    Where a user searches for a Beer
-                  </p>
-                </li>
-                <li>
-                  <h5>SearchBeerResultsView</h5>
-                  <p>
-                    Where a user sees the results of a search for a Beer
-                  </p>
-                </li>
-                <li>
-                  <h5>CreateBrandView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to create a Brand
-                  </p>
-                </li>
-                <li>
-                  <h5>CreateBeerView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to create a Beer
-                  </p>
-                </li>
-                <li>
-                  <h5>RateBeerView</h5>
-                  <p>
-                    Where a user fills out and submits a form required to rate a Beer (create a Rating)
-                  </p>
-                </li>
-              </ul>
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>2.3</u></b></span>
-                Control Objects
-              </h4>
-              <br />
-              <ul>
-                <li>
-                  <h5>BrandController</h5>
-                  <p>
-                    Coordinates all activities related to Brand objects
-                  </p>
-                </li>
-                <li>
-                  <h5>BeerController</h5>
-                  <p>
-                    Coordinates all activities related to Beer objects
-                  </p>
-                </li>
-                <li>
-                  <h5>RatingController</h5>
-                  <p>
-                    Coordinates all activities related to Rating objects
-                  </p>
-                </li>
-                <li>
-                  <h5>SearchController</h5>
-                  <p>
-                    Coordinates all activities related to searching for beers
-                  </p>
-                </li>
-              </ul>
-              <br />
-            </div>
-          </div>
-          <div>
-            <h1>
-              <span class="subsection">3.</span>
-              Use Cases
+              Core Structures
             </h1>
             <hr>
             <br />
