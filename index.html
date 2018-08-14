@@ -18,18 +18,62 @@
           <b>Beer Buddy Design Document</b>
         </h1>
         <a href="https://github.com/russellgoldman/CP317-Beer-Finder" target="_blank">
-          <h4><u>v0.6</u></h4>
+          <h4><u>v1.0 Beta</u></h4>
         </a>
         <br /><br />
         <h4><b>Designed by:</b><h6>CP317 Software Engineering Students</h6></h4>
         <h4><b>Date Started:</b><h6>May 5th, 2018</h6></h4>
-        <h4><b>Date Completed:</b><h6>August 3rd, 2018 <i>(Expected)</h6></i>
+        <h4><b>Date Completed:</b><h6>August 14rd, 2018</h6>
       </div>
     </div>
     <div class="container-fluid information">
       <div class="row content">
         <div class="col-sm-1 col-md-1 col-lg-3"></div>
         <div class="col-sm-10 col-md-10 col-lg-6">
+          <br />
+          <div>
+            <h1>
+              Definitions
+            </h1>
+            <hr>
+            <div>
+              <h4>
+                Users
+              </h4>
+              <p></p>
+              <p>
+                Person that uses the BeerBuddy application
+              </p>
+            </div>
+            <div>
+              <h4>
+                Experienced Drinkers
+              </h4>
+              <p></p>
+              <p>
+                Users that have a general understanding of what they want in an alcoholic beer beverage and need more validation on beers that suit their preferences
+              </p>
+            </div>
+            <div>
+              <h4>
+                Novice Drinkers
+              </h4>
+              <p></p>
+              <p>
+                Users that don’t know what aspects they prefer in a beer and need a reference to popular choices
+              </p>
+            </div>
+            <div>
+              <h4>
+                abv
+              </h4>
+              <p></p>
+              <p>
+                Alcohol percentage by volume
+              </p>
+            </div>
+          </div>
+          <br />
           <br />
           <div>
             <h1>
@@ -45,7 +89,7 @@
               </h4>
               <p></p>
               <p>
-                The purpose of this document is to make a comprehensive design of how the Beer Buddy app will work on both the front end and the back end. This will draw an approximate picture of the connections among both ends and interfaces. This design document will be subject to further review and will have a final edition matching the resulting application at the end point of the semester.
+                The purpose of this document is to make a comprehensive design of how the BeerBuddy app will work on both the front end and the back end. This will draw an approximate picture of the connections among both ends and interfaces.
               </p>
               <br />
             </div>
@@ -67,7 +111,7 @@
               </h4>
               <p></p>
               <p>
-                Users will be greeted by a screen giving them an option to select their beer drinking experience being either novice or experienced by their own judgment. Experienced drinkers will be redirected to filter options such as beer colour, alcohol percentage (alcohol by volume), country of origin, and availability in can/bottle/keg. They will then receive a list of beers that match their filters ranging from most-alike to least-alike. Novice drinkers will be redirected to a page of top picks from beer types such as lagers, malts, stouts, and ales. Top picks will be referenced from the backend database.
+                Users will be greeted by a screen giving them an option to select their beer drinking experience being either novice (not knowing their preferences in beer) or experienced (knowing their preference in beer). Experienced drinkers will be redirected to filter options such as beer colour, alcohol percentage (by volume), country of origin, and availability in can/bottle/keg. They will then receive a list of beers that match their filters ranging from most-alike to least-alike. Novice drinkers will be redirected to a page of top picks from beer types such as lagers, malts, stouts, and ales. Top picks will be referenced from the backend database. Users will also be allowed to add beer by filling out the beverages characteristics on a separate page.
               </p>
               <br />
             </div>
@@ -110,7 +154,9 @@
               </h4>
               <p></p>
               <p>
-                Front-end and back-end are to be separated and interaction with the application will only be done so through front-end calls to the back-end Application Programming Interface (API). The front-end is composed of two pages including an introduction page to allow the user to select the novice or experienced drinkers edition of the BeerBuddy application. The novice edition will offer less advanced features whereas the experience version will use more complex language and offer more versatility in the user’s experience. All of this is effectively powered by the backend API of the application, which coordinates data transfer between the client and the server.
+                Front-end and back-end are separated. Interaction with the application will only be done through front-end calls to the back-end Application Programming Interface (API).
+
+                The front-end is composed of two pages including an introduction page to allow the user to select the novice or experienced drinkers edition of the BeerBuddy application. The novice edition will offer less advanced features more suited to discover a novice users preferences, whereas the experience version will use more beer associated vocabulary and offer more versatility in the user’s experience. Backend API of the application will coordinate data transfer between the client and the server.
               </p>
               <br />
             </div>
@@ -121,7 +167,7 @@
               </h4>
               <p></p>
               <p>
-                The API will be written using the Flask framework, which will connect to the database and the front-end Django client.
+                The API will be written using the Flask framework, which will connect the database and the front-end Django client.
               </p>
               <br />
             </div>
@@ -172,7 +218,7 @@
               </h4>
               <p></p>
               <p>
-                The user interface consists of the landing page, filters page, resulted query page, individual beer viewing pages with beer ratings, and finally the add beer’s page.
+                The user interface consists of the landing page, filters page, resulted query page, individual beer viewing pages with beer ratings, and finally the add beers page.
               </p>
               <br />
             </div>
@@ -183,7 +229,7 @@
               </h4>
               <p></p>
               <p>
-                The navigation of the page is achieved by providing a responsive navigation bar at the top of every page. The navigation bar is based of components provided by bootstrap.
+                The navigation of the page is achieved by providing a responsive navigation bar at the top of every page. The navigation bar is based off components provided by bootstrap.
               </p>
               <br />
             </div>
@@ -235,7 +281,7 @@
               </h4>
               <p></p>
               <p>
-                The page lets the users search for beer by selecting the type, color and country of the beer.
+                The page lets the users search for beer by selecting the alcohol percentage by volume, brand, body type, container type and taste of the beer. It will generate all records of beers in our database that match the search criteria. The result of the beer is displayed in the results page.
               </p>
               <br />
               <div class="text-center centeredImage">
@@ -254,27 +300,33 @@
                 <tbody>
                   <tr style="color: black; font-size: 17px;">
                     <th scope="row">1</td>
-                    <td>Search</td>
-                    <td>Searchbar</td>
-                    <td>Lets the user search for selected beer</td>
+                    <td>AlcoholVolume</td>
+                    <td>SearchBox</td>
+                    <td>Lets the user search for selected beer by alcohol volume.</td>
                   </tr>
                   <tr style="color: black; font-size: 17px;">
                     <th scope="row">2</td>
-                    <td>Type</td>
+                    <td>Submit</td>
                     <td>Button</td>
                     <td>Lets the user select the type of beer</td>
                   </tr>
                   <tr style="color: black; font-size: 17px;">
                     <th scope="row">3</td>
-                    <td>Colour</td>
-                    <td>Radio Button</td>
-                    <td>Lets the user select the colour of the beer</td>
+                    <td>Brand</td>
+                    <td>Dropdown box</td>
+                    <td>Lets the user select the brand of the beer</td>
                   </tr>
                   <tr style="color: black; font-size: 17px;">
                     <th scope="row">4</td>
-                    <td>Country</td>
-                    <td>Radio Button</td>
-                    <td>Lets the user select the country of origin</td>
+                    <td>ContainerType</td>
+                    <td>Multiselect box</td>
+                    <td>Lets the user select the ContainerType(s) of the beer.</td>
+                  </tr>
+                  <tr style="color: black; font-size: 17px;">
+                    <th scope="row">5</td>
+                    <td>Taste</td>
+                    <td>Multiselect box</td>
+                    <td>Lets the user select the Taste(s) of the beer</td>
                   </tr>
                 </tbody>
               </table>
@@ -295,30 +347,6 @@
                 <img src="./images/libraryPage.png" class="img-responsive" alt="filtersPage">
               </div>
               <br />
-              <table class="table">
-                <thead>
-                  <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
-                    <th scope="col">#</td>
-                    <th scope="col">Field</td>
-                    <th scope="col">Type</td>
-                    <th scope="col">Description</td>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr style="color: black; font-size: 17px;">
-                    <th scope="row">1</td>
-                    <td>Filters</td>
-                    <td>Button</td>
-                    <td>Lets the user search for selected beer</td>
-                  </tr>
-                  <tr style="color: black; font-size: 17px;">
-                    <th scope="row">2</td>
-                    <td>Beer Name</td>
-                    <td>Button</td>
-                    <td>Jump into the detail page of this beer</td>
-                  </tr>
-                </tbody>
-              </table>
               <br />
               <br />
             </div>
@@ -353,33 +381,33 @@
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">2</td>
-                  <td>Beer Name</td>
+                  <td>BeerName</td>
                   <td>Text Field Input</td>
                   <td>Text field to input beer name</td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">3</td>
-                  <td>Beer Type</td>
+                  <td>BeerType</td>
                   <td>Text Field Input</td>
                   <td>Lets user select type of beer</td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">4</td>
-                  <td>Beer Origin</td>
+                  <td>BeerOrigin</td>
                   <td>Text Field Input</td>
                   <td>Lets the user select the country of origin</td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">5</td>
-                  <td>Acl</td>
+                  <td>Abv</td>
                   <td>Text Field Input</td>
-                  <td>Text field for user to input acl percentage</td>
+                  <td>Text field for user to input alcohol percentage by volume of alcohol</td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">6</td>
-                  <td>Beer Card</td>
+                  <td>BeerCard</td>
                   <td>Input Control</td>
-                  <td>Text box to input further description of the beer</td>
+                  <td>Text box to input further description of taste characteristics of the beer.</td>
                 </tr>
               </table>
               <br />
@@ -410,7 +438,7 @@
                 </thead>
                 <tr style="color: black; font-size: 17px;">
                   <th scope="row">1</td>
-                  <td>Learn More</td>
+                  <td>LearnMore</td>
                   <td>Button</td>
                   <td>Jump into the detail page of this beer</td>
                 </tr>
@@ -545,19 +573,7 @@
             <div>
               <h4>
                 <span class="subsection"><b><u>6.5</u></b></span>
-                Back-end UML
-              </h4>
-              <br />
-              <div class="text-center centeredImage">
-                <img src="./images/backendUML.png" class="img-responsive" alt="backendUML">
-              </div>
-              <br />
-              <br />
-            </div>
-            <div>
-              <h4>
-                <span class="subsection"><b><u>6.6</u></b></span>
-                Back-end Route Dictionary
+                Back-end Route Dictionary (Currently Implemented)
               </h4>
               <br />
               <table class="table">
@@ -588,14 +604,28 @@
                     Dictionary Object
                   </td>
                   <td>
-                    The frontend sends a GET request to the backend with the user defined filters as a dictionary object.
+                    The frontend sends a POST request to the backend with the user defined filters as a dictionary object.
                     <br />
                     <br />
-                    The backend then uses the given dictionary object to compare all the beers and in the callback function, it either returns a query in descending order containing the beers most similar to the user defined filters in a dictionary object, or returns an empty dictionary object.
+                    The backend then uses the given dictionary object containing the filters to compare against all beers in the database and create a new dictionary object of all beers and their accuracies in relation to the filters.
                     <br />
                     <br />
-                    Finally, the backend returns a new dictionary object containing the queried beers and how closely they resembled the filters (0 - 100% matching score as a key/value pair) and their respective data, otherwise an empty dictionary object.
+                    Finally, the backend returns the new dictionary object if all worked appropriately, otherwise it returns an empty dictionary object with a 400 status code (BAD_REQUEST).
                   </td>
+                </tr>
+              </table>
+            </div>
+            <div>
+              <h4>
+                <span class="subsection"><b><u>6.6</u></b></span>
+                Back-end Route Dictionary (Future Implementations)
+              </h4>
+              <br />
+              <table class="table">
+                <tr style="background-color: orange; color: black; font-weight: bold; font-size: 20px;">
+                  <td>Name + Method Type</td>
+                  <td>Parameters + Return Type</td>
+                  <td>Description</td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
                   <td>
@@ -623,47 +653,6 @@
                     <br />
                     <br />
                     The backend receives the dictionary object, checks that see that the comment is not a complete duplicate, and then either writes the data to the database or does not.
-                  </td>
-                </tr>
-                <tr style="color: black; font-size: 17px;">
-                  <td>
-                    <b>Name:</b>
-                    <br />
-                    GET /filters
-                    <br />
-                    <br />
-                    <b>Type:</b>
-                    <br />
-                    API Route
-                  </td>
-                  <td>
-                    <b>Parameters:</b>
-                    <br />
-                    userType (String; “novice” or “experienced”)
-                    <br />
-                    <br />
-                    <b>Return Type:</b>
-                    <br />
-                    Dictionary Object
-                  </td>
-                  <td>
-                    The frontend sends a GET request to the backend to fetch all novice/experienced user filters (classified by the userType parameter) for display (just in case they need to be updated over time).
-                    <br />
-                    <br />
-                    The backend receives the request and queries a table in the database containing filter objects with the following JSON format...
-                    <br />
-                    <br />
-                    <span style="font-family: Courier;">
-                    {
-                    <br />
-                      <p style="text-indent: 30px; margin: 0;">_id: auto-generated Integer,</p>
-                      <p style="text-indent: 30px; margin: 0;">filter_name: String,</p>
-                      <p style="text-indent: 30px; margin: 0;">filter_options: [option1, option2, etc] (String Array)</p>
-                    }
-                    </span>
-                    <br />
-                    <br />
-                    If the filters are found, a populated dictionary object with filters is returned, otherwise an empty dictionary object.
                   </td>
                 </tr>
                 <tr style="color: black; font-size: 17px;">
@@ -721,7 +710,7 @@
                   Russell Goldman
                   <ul>
                     <li>Back-end Routes UML / Descriptions</li>
-                    <li>Design Document Bootstrap Site v1 and v2</li>
+                    <li>Design Document Bootstrap Site v1, v2, v3</li>
                   </ul>
                 </li>
                 <li>Matthew Wong</li>
@@ -745,16 +734,17 @@
             <hr>
             <div>
               <ul>
-                <li>v0.4 July 5th, 2018</li>
+                <li><b>v0.4:</b> July 5th, 2018</li>
                 <li>
-                  v0.5 July 17th, 2018
+                  <b>v0.5:</b> July 17th, 2018
                   <ul>
                     <li>
                       SQA Completed
                     </li>
                   </ul>
                 </li>
-                <li>v0.6 July 18th, 2018</li>
+                <li><b>v0.6:</b> July 18th, 2018</li>
+                <li><b>v1.0 Beta:</b> August 14th, 2018</li>
               </ul>
               <br />
               <br />
